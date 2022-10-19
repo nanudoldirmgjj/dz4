@@ -26,8 +26,9 @@ gender = 'man';
 gender = 'woman'
 }
 */
-let gender;
-let male = true ?  gender = 'man' :  gender = 'woman';
+
+let male = true;
+let gender = male ?  'man' :  'woman';
 
 
 /*
@@ -49,15 +50,15 @@ const roles = [
     true, 
     false,
 ]
+const newRoles = [];
 
 for ( let i = 0; i < roles.length; i ++) {
-    if (roles[i] == true) {
-        roles[i] = { role: 'admin' };
-    } else {
-        roles[i] = { role: 'user' };
-    }
+    let user = roles[i] == true ? 'admin' : 'user';
+    newRoles.push({role: user});
 }
 console.log(roles);
+
+
 
 // (для себя)
 // for (let i = 0; i < roles.length; i ++) {
@@ -86,7 +87,7 @@ function findPositiveNumbers(arr) {
     if (arr[i] > 0) {
         console.log(arr[i])
 
-        newArr[i] = arr[i];
+        newArr.push(arr[i]) ;
 
     }        
     }
@@ -108,7 +109,7 @@ findPositiveNumbers(arr);
 function createArr(meaning, number) {
     let newArr = [];
     for (let i = 0; i < number; i++){
-        newArr[i] = meaning;
+        newArr.push(meaning);
     }
     console.log(newArr);
 }
@@ -132,7 +133,7 @@ function filterFor(arra, a) {
     let newArra = [];
     for (let i = 0; i < arra.length; i++) {
         if (arra[i] >= a) {
-         newArra[i] = arra[i]   
+         newArra.push(arra[i]);   
     }
 
 }
@@ -191,7 +192,7 @@ function getSquares(min, max) {
 */
 
 function isInteger(x) {
-    if (x % 2 == 0) {
+    if (x % 1 == 0) {
         return true;
     } else {
         return false;
@@ -215,9 +216,10 @@ function isInteger(x) {
 
 function intOrDec(n) {
     for (let i = 1; i <= n; i += 0.5) {
-        i.isInteger == true ?  console.log(i + ' integer') : console.log(i + ' decimal');
+       let result = (i % 1 == 0) ?   ' integer' :  ' decimal';
+       console.log(i + result);
     }
 }
 
-// intOrDec(6);
+intOrDec(6);
 
